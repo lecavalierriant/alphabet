@@ -242,7 +242,7 @@ quartHautGauche = [
 	"Я",
 ];
 
-function caractères(originaux) {
+function caractères() {
 	for (bouton of document.querySelectorAll("button")) {bouton.style.display = "none";}
 	for (titre of document.querySelectorAll("h1")) {
 		texte = titre.innerText.toUpperCase();
@@ -273,8 +273,7 @@ function caractères(originaux) {
 			libreRondHautDroite = rondHautDroite.includes(caractère);
 			libreRondBasDroite = rondBasDroite.includes(caractère);
 			spécial = spéciaux[caractère];
-			chemin = "";
-			if (originaux) {chemin = "../caracteresORIGINAUX/";}
+			chemin = "https://lecavalierriant.github.io/polygramme/";
 			titre.innerHTML += `<img src = ${chemin}${spécial ? `speciaux/${spécial}` : `${caractère}`}.png alt = ${spécial ? `&${spécial};` : caractère} class = "${classes.join(' ')}">`;
 		}
 		// titre.innerHTML += "<hr>";

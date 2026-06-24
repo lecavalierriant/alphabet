@@ -44,6 +44,7 @@ bas = [
 spéciaux = {
 	"-": "-",
 	"~": "~",
+	"&": "amp",
 	"'": "apos",
 	"˘": "breve",
 	"·": "centerdot",

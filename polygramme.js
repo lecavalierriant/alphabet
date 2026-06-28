@@ -87,6 +87,7 @@ spéciaux = {
 	"`": "DiacriticalGrave",
 	"ˇ": "Hacek",
 	"^": "Hat",
+	"%": "percnt",
 	".": "period",
 	";": "semi",
 	"/": "sol",

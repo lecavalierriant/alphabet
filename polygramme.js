@@ -1,20 +1,31 @@
 hauts = [
 	"'", "˘", "´", "˙", "˜", "`", "ˇ", "^", "¯", "¨",
 	// lt
-	"À", "Á", "Â", "Ä", "Ã", "Ā", "Ă", "Ǎ", "Ȧ",
-	"Ǣ", "Ǽ",
-	"Ḃ",
-	"Č", "Ć", "Ĉ", "Ċ",
-	"Ď", "Ḋ",
-	"È", "É", "Ê", "Ë", "Ě",
-	"Ì", "Í", "Î", "Ï",
-	"Ñ",
-	"Ò", "Ó", "Ô", "Ö",
-	"Ř",
-	"Š",
-	"Ù", "Ú", "Û", "Ü",
-	"Ỳ", "Ý", "Ŷ", "Ÿ",
-	"Ž",
+	"Á", "À", "Ȧ", "Â", "Ä", "Ǎ", "Ă", "Ā", "Ã",
+	"Ǽ",                               "Ǣ",
+	          "Ḃ",
+	"Ć",      "Ċ", "Ĉ",      "Č",
+	          "Ḋ",           "Ď",
+	"É", "È", "Ė", "Ê", "Ë", "Ě", "Ĕ", "Ē", "Ẽ",
+	          "Ḟ",
+	"Ǵ",      "Ġ", "Ĝ",      "Ǧ", "Ğ", "Ḡ",
+	          "Ḣ", "Ĥ", "Ḧ",
+	"Í", "Ì", "İ", "Î", "Ï", "Ǐ", "Ĭ", "Ī", "Ĩ",
+	               "Ĵ",
+	"Ḱ",                          "Ǩ",
+	"Ĺ",                     "Ľ",
+	          "Ṁ",
+	"Ń", "Ǹ", "Ṅ",           "Ň",           "Ñ",
+	"Ó", "Ò", "Ȯ", "Ô", "Ö", "Ǒ", "Ŏ", "Ō", "Õ",
+	          "Ṗ",
+	"Ŕ",      "Ṙ",           "Ř",
+	"Ś",      "Ṡ",           "Š",
+	          "Ṫ",           "Ť",
+	"Ú", "Ù",      "Û", "Ü", "Ǔ", "Ŭ", "Ū", "Ũ",
+	                                        "Ṽ",
+	"Ẃ", "Ẁ", "Ẇ", "Ŵ", "Ẅ", 
+	"Ý", "Ỳ",      "Ŷ", "Ÿ",                "Ỹ",
+	"Ź",      "Ż", "Ẑ",      "Ž",
 	// gr
 	"Ά",
 	"Έ",
@@ -29,6 +40,7 @@ hauts = [
 	"Й",
 	"Ї",
 	"Ё",
+	                    "Ӱ",       "Ў", "Ӯ",
 ];
 
 bas = [
@@ -41,11 +53,13 @@ bas = [
 	"Q",
 	// gr
 	// ru
+	"Ҵ",
 	"Ц",
 	"Щ",
 ];
 
 spéciaux = {
+	// "~": "#126",
 	"&": "amp",
 	"'": "apos",
 	"˘": "breve",
@@ -247,7 +261,8 @@ quartHautGauche = [
 
 function caractères() {
 	for (titre of document.querySelectorAll(".polygramme")) {
-		texte = titre.innerText.toUpperCase();
+		texte = titre.innerText;
+		// titre.innerHTML = "<hr>";
 		titre.innerHTML = "";
 		compte = 0;
 		libreBasDroite = false;
@@ -274,8 +289,9 @@ function caractères() {
 			libreRondHautDroite = rondHautDroite.includes(caractère);
 			libreRondBasDroite = rondBasDroite.includes(caractère);
 			spécial = spéciaux[caractère];
-			chemin = "https://lecavalierriant.github.io/polygramme/";
+			chemin = "../polygramme/";
 			titre.innerHTML += `<img src = ${chemin}${spécial ? `speciaux/${spécial}` : `${caractère}`}.png alt = ${spécial ? `&${spécial};` : caractère} class = "${classes.join(' ')}">`;
 		}
+		// titre.innerHTML += "<hr>";
 	}
 }

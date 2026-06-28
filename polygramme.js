@@ -306,6 +306,5 @@ function caractères() {
 			chemin = "https://lecavalierriant.github.io/polygramme/";
 			titre.innerHTML += `<img src = ${chemin}${spécial ? `speciaux/${spécial}` : `${caractère}`}.png alt = ${spécial ? `&${spécial};` : caractère} class = "${classes.join(' ')}">`;
 		}
-		// titre.innerHTML += "<hr>";
 	}
 }

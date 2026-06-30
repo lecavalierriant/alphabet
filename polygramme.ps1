@@ -1,4 +1,4 @@
-$correspondances = @(
+﻿$correspondances = @(
 	@{original = "speciaux/apos"; copies = @("speciaux/DiacriticalAcute")},
 	@{original = "A"; copies = @("Α", "А")},
 		@{original = "Á"; copies = @("Ά")},

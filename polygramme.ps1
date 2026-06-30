@@ -42,3 +42,27 @@
 	@{original = "З"; copies = @("3")},
 	@{original = "Ч"; copies = @("4")}
 )
+
+function copier() {
+	$données = [System.Collections.Generic.List[PSCustomObject]]::new()
+	foreach ($lettre in $correspondances) {
+		$données.Add(
+			[PSCustomObject]@{
+				"Original" = $lettre.original
+				"Copies" = $lettre.copies -join " "
+			}
+		)
+		$source = $PSScriptRoot + $lettre.original + ".png"
+		if (Test-Path -Path $source) {
+			foreach ($destination in $lettre.copies) {
+				$destination = $PSScriptRoot + $destination + ".png"
+				try {Copy-Item -Path $source -Destination $destination -Force}
+				catch {Write-Error "$destination. Erreur : $_"}
+			}
+		}
+	}
+	$rapportFichier = $PSScriptRoot + "\polygramme.csv"
+	$données | Export-Csv -Path $rapportFichier -NoTypeInformation -Encoding UTF8
+}
+
+copier

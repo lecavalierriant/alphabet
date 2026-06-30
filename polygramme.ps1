@@ -54,10 +54,10 @@ function copier() {
 		)
 		$source = $PSScriptRoot + $lettre.original + ".png"
 		if (Test-Path -Path $source) {
-			foreach ($destination in $lettre.copies) {
-				$destination = $PSScriptRoot + $destination + ".png"
-				try {Copy-Item -Path $source -Destination $destination -Force}
-				catch {Write-Error "$destination. Erreur : $_"}
+			foreach ($copie in $lettre.copies) {
+				$copie = $PSScriptRoot + $copie + ".png"
+				try {Copy-Item -Path $source -Destination $copie -Force}
+				catch {Write-Error "$copie. Erreur : $_"}
 			}
 		}
 	}
